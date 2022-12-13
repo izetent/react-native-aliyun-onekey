@@ -32,7 +32,8 @@ RCT_EXPORT_METHOD(init:(NSString *)secretInfo resolve:(RCTPromiseResolveBlock)re
     tXCommonHandler = [TXCommonHandler sharedInstance];
     [tXCommonHandler setAuthSDKInfo:secretInfo complete:^(NSDictionary * _Nonnull resultDic) {
         NSString *resultCode = [resultDic objectForKey:@"resultCode"];
-        if(resultCode==PNSCodeSuccess) {
+        if([PNSCodeSuccess isEqualToString: resultCode]) {
+            NSLog(@"resultDicinit = %@", resultDic);
             resolve(@"");
         } else {
             reject(resultCode, [resultDic objectForKey:@"msg"], nil);
@@ -56,7 +57,7 @@ RCT_EXPORT_METHOD(checkEnvAvailable:(RCTPromiseResolveBlock)resolve reject:(RCTP
     }
     [tXCommonHandler checkEnvAvailableWithComplete:^(NSDictionary * _Nullable resultDic) {
         NSString *resultCode = [resultDic objectForKey:@"resultCode"];
-        if(resultCode==PNSCodeSuccess) {
+        if([PNSCodeSuccess isEqualToString: resultCode]) {
             resolve(resultDic);
         } else {
             reject(resultCode, [resultDic objectForKey:@"msg"], nil);
@@ -71,7 +72,7 @@ RCT_EXPORT_METHOD(prefetch:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRej
     }
     [tXCommonHandler accelerateLoginPageWithTimeout:0.0 complete:^(NSDictionary * _Nonnull resultDic) {
         NSString *resultCode = [resultDic objectForKey:@"resultCode"];
-        if(resultCode==PNSCodeSuccess) {
+        if([PNSCodeSuccess isEqualToString: resultCode]) {
             resolve(@"");
         } else {
             reject(resultCode, [resultDic objectForKey:@"msg"], nil);
@@ -89,21 +90,21 @@ RCT_EXPORT_METHOD(onePass:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseReje
         NSString *resultCode = [resultDic objectForKey:@"resultCode"];
         NSString *msg = [resultDic objectForKey:@"msg"];
         NSString *token = [resultDic objectForKey:@"token"];
-        if(resultCode==PNSCodeSuccess
-           || resultCode==PNSCodeLoginControllerClickCheckBoxBtn
-              || resultCode==PNSCodeLoginControllerClickProtocol
+        if([PNSCodeSuccess isEqualToString: resultCode]
+           || [PNSCodeLoginControllerClickCheckBoxBtn isEqualToString: resultCode]
+              || [PNSCodeLoginControllerClickProtocol isEqualToString: resultCode]
            ) {
             [self sendEventWithName:@"onTokenSuccess" body:@{
                                                              @"msg": msg!=nil ? msg: @"",
                                                              @"code": resultCode!=nil?resultCode:@"",
                                                @"token": token!=nil ? token : @""
                                                }];
-        } else if (resultCode==PNSCodeLoginControllerPresentSuccess) {
+        } else if ([PNSCodeLoginControllerPresentSuccess isEqualToString: resultCode]) {
             resolve(@{
                         @"msg": msg!=nil ? msg: @"",
                         @"code": resultCode!=nil?resultCode:@"",
                     });
-        } else if (resultCode==PNSCodeLoginControllerClickLoginBtn) {
+        } else if ([PNSCodeLoginControllerClickLoginBtn isEqualToString: resultCode]) {
             
             NSError *error = [[NSError alloc] initWithDomain:msg code:[resultCode intValue] userInfo:@{
                 @"msg": msg!=nil ? msg: @"",
