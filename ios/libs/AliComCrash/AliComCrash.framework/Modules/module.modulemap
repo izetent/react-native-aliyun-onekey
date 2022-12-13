@@ -1,0 +1,6 @@
+framework module AliComCrash {
+  umbrella header "AliComCrash.h"
+
+  export *
+  module * { export * }
+}

@@ -1,15 +1,14 @@
 {
-  "name": "react-native-ali-onepass",
-  "version": "3.2.0",
+  "name": "react-native-onepass-alibaba-dlxk",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release": "standard-version && npm run push",
-    "push": "git push --follow-tags origin master"
+    "test": "echo \"no test specified \""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yoonzm/react-native-ali-onepass.git"
+    "url": "git+https://github.com/yyyyq/react-native-ali-onepass"
   },
   "keywords": [
     "react-native",
@@ -20,22 +19,18 @@
     "onekey",
     "login"
   ],
-  "typings": "./index.d.ts",
   "files": [
     "android/",
     "ios/",
     "index.js",
+    "index.d.ts",
     "RNAliOnepass.podspec",
     "package.json",
-    "README.md",
-    "index.d.ts"
+    "README.md"
   ],
-  "author": "yoonzm",
+  "author": "Eather",
   "license": "MIT",
   "peerDependencies": {
     "react-native": "*"
-  },
-  "devDependencies": {
-    "standard-version": "^9.5.0"
   }
 }

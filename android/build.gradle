@@ -1,8 +1,9 @@
+
 buildscript {
     repositories {
         jcenter()
         maven(){ url 'https://maven.aliyun.com/repository/releases' }
-        maven{ url "https://maven.aliyun.com/nexus/content/repositories/releases" }
+        maven{ url "http://maven.aliyun.com/nexus/content/repositories/releases" }
     }
 
     dependencies {
@@ -12,25 +13,15 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
-def DEFAULT_COMPILE_SDK_VERSION = 23
-def DEFAULT_BUILD_TOOLS_VERSION = "23.0.2"
-def DEFAULT_TARGET_SDK_VERSION = 23
-def DEFAULT_SUPPORT_LIB_VERSION = "23.1.0"
-
 android {
-    compileSdkVersion rootProject.hasProperty('compileSdkVersion') ? rootProject.compileSdkVersion : DEFAULT_COMPILE_SDK_VERSION
-    buildToolsVersion rootProject.hasProperty('buildToolsVersion') ? rootProject.buildToolsVersion : DEFAULT_BUILD_TOOLS_VERSION
+    compileSdkVersion 23
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion rootProject.hasProperty('targetSdkVersion') ? rootProject.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
     }
     lintOptions {
         abortOnError false
@@ -51,15 +42,16 @@ android {
 repositories {
     mavenCentral()
     maven(){ url 'https://maven.aliyun.com/repository/releases' }
-    maven{ url "https://maven.aliyun.com/nexus/content/repositories/releases" }
+    maven{ url "http://maven.aliyun.com/nexus/content/repositories/releases" }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
-    implementation(name:'auth_number_product-2.12.4-SNAPSHOT-log-online-standard-release', ext:'aar')
-    implementation(name:'crashshield-2.1.4-release', ext:'aar')
-    implementation(name:'main-2.1.4-release', ext:'aar')
-    implementation(name:'logger-2.1.4-release', ext:'aar')
+    implementation 'com.android.support:appcompat-v7:23.2.1'
+    implementation(name:'phoneNumber-L-AuthSDK-2.12.1.2', ext: 'aar')
+    implementation(name:'crashshield-2.0.3-release', ext: 'aar')
+    implementation(name:'logger-2.0.3-release', ext: 'aar')
+    implementation(name:'main-2.0.3-release', ext: 'aar')
     implementation 'com.alibaba:fastjson:1.2.60' // 配置对gson的依赖
 }
