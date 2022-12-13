@@ -12,7 +12,7 @@
 ```
   repositories {
       flatDir {
-          dirs 'libs', '../../node_modules/react-native-onepass-alibaba/android/libs'
+          dirs 'libs', '../../node_modules/react-native-onepass-alibaba-dlxk/android/libs'
       }
   }
 ```
