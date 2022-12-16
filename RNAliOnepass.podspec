@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/yyyyq/react-native-ali-onepass.git", :tag => "master" }
   s.source_files  = "ios/*.{h,m}"
-  s.resources =  'ios/libs/ATAuthSDK_D.framework/ATAuthSDK.bundle'
-  s.vendored_frameworks = 'ios/libs/ATAuthSDK_D.framework'
+  s.resources =  'ios/libs/ATAuthSDK.framework/ATAuthSDK.bundle'
+  s.vendored_frameworks = 'ios/libs/**/*.framework'
   s.requires_arc = true
 
 
