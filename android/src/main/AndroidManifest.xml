@@ -9,6 +9,13 @@
                 android:launchMode="singleTop"
                 android:screenOrientation="behind"
                 android:theme="@style/authsdk_activity_dialog" />
+        <!--二次弹窗界面-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false" android:launchMode="singleTop"
+            android:name="com.mobile.auth.gatewayauth.PrivacyDialogActivity"
+            android:screenOrientation="behind"
+            android:theme="@style/authsdk_activity_dialog"/>
         <!-- 协议⻚面 webview-->
         <activity
                 android:name="com.mobile.auth.gatewayauth.activity.AuthWebVeiwActivity"

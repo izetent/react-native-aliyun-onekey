@@ -79,6 +79,62 @@ export type UIConfig = {
   alertBarCloseImgPath?: string,
   alertBarCloseImgWidth?: number,
   alertBarCloseImgHeight?: number,
+
+   // 二次授权弹窗页面
+   privacyAlertIsNeedShow?: boolean,//设置二次隐私协议弹窗是否需要显示
+   privacyAlertIsNeedAutoLogin?: boolean,//设置二次隐私协议弹窗点击按钮是否需要执行登录
+   privacyAlertMaskIsNeedShow?: boolean,// 设置二次隐私协议弹窗背景蒙层是否显示
+   privacyAlertMaskAlpha?: number,//设置二次隐私协议弹窗蒙层透明度。默认值0.3
+   privacyAlertAlpha?: number, // 弹窗透明度，默认1.0
+   privacyAlertBackgroundColor?: string,// 设置二次隐私协议弹窗背景色（同意并继续按钮区域）。
+   privacyAlertEntryAnimation?: string,//设置二次隐私协议弹窗显示自定义动画。
+   privacyAlertExitAnimation?: string,//设置二次隐私协议弹窗隐藏自定义动画。
+   privacyAlertCornerRadiusArray?: Array<number>,//设置二次隐私协议弹窗的四个圆角值。
+   privacyAlertAlignment?: number,//设置屏幕居中、居上、居下、居左、居右，默认居中显示。
+   privacyAlertWidth?: number,//设置弹窗宽度
+   privacyAlertHeight?: number, //设置弹窗高度。
+   privacyAlertOffsetX?: number, //设置弹窗水平偏移量。（单位：dp）
+   privacyAlertOffsetY?: number,// 	设置弹窗竖直偏移量。（单位：dp）
+   privacyAlertTitleBackgroundColor?: string,// 设置二次隐私协议弹窗标题背景颜色。
+   privacyAlertTitleAlignment?: number,// 设置二次隐私协议弹窗标题支持居中、居左，默认居中显示
+   privacyAlertTitleOffsetX?:number,// 设置标题文字水平偏移量。（单位：dp）
+   privacyAlertTitleOffsetY?:number,// 
+   privacyAlertTitleTextSize?: number, // 设置标题文字大小，默认值18 sp。
+   privacyAlertTitleColor?: string,// 设置标题文字颜色。
+   privacyAlertContentBackgroundColor?: string, //设置协议内容背景颜色。
+   privacyAlertContentTextSize?: number, //设置服务协议文字大小，默认值16 sp
+   privacyAlertContentAlignment?: number,// 设置二次隐私协议弹窗协议文案支持居中、居左，默认居左显示。
+   privacyAlertContentColor?: string,
+   privacyAlertContentBaseColor?:string,
+   privacyAlertContentHorizontalMargin?: number,
+   privacyAlertContentVerticalMargin?: number,
+   privacyAlertBtnBackgroundImgPath?: string,
+   privacyAlertBtnTextColor?: string,
+   privacyAlertBtnTextColorPath?: string,
+   privacyAlertBtnTextSize?: number,
+   privacyAlertBtnWidth?: number,
+   privacyAlertBtnHeight?: number,
+   privacyAlertCloseBtnShow?: boolean,
+   privacyAlertCloseImagPath?: string,
+   privacyAlertCloseImgWidth?: number,
+   privacyAlertCloseImgHeight?: number,
+   tapPrivacyAlertMaskCloseAlert?: boolean,//设置二次隐私协议弹窗点击背景蒙层是否关闭弹窗
+   //ios 
+   privacyAlertTitleFont?: number,//设置二次隐私协议弹窗标题文字大小
+   privacyAlertContentFont?: number,//设置二次隐私协议弹窗协议内容文字大小，默认值13 dp，最小值12 dp。
+   privacyAlertContentColors?: Array<string>,//设置二次隐私协议弹窗协议内容颜色数组。说明 默认值[#999999,#1890FF]，[非点击文案颜色，点击文案颜色]。
+   privacyAlertBtnBackgroundImages?: Array<string>, //设置二次隐私协议弹窗按钮背景图片。
+   privacyAlertButtonTextColors?: Array<string>,//设置二次隐私协议弹窗按钮文字颜色。
+   privacyAlertButtonFont?: number,// sh	设置二次隐私协议弹窗按钮文字大小，默认值18 dp，最小值10 dp。
+   privacyAlertCloseButtonIsNeedShow?: boolean, // 设置二次隐私协议弹窗关闭按钮是否显示。
+   privacyAlertCloseButtonImage?: string,//
+   privacyAlertMaskColor?: string, // 设置二次隐私协议弹窗蒙版背景颜色。 
+   privacyAlertPrivacyContentOffsetX?: number,// 二次隐私协议弹窗内容尺寸
+   privacyAlertPrivacyContentOffsetY?: number, //
+   privacyAlertPrivacyContentWidth?: number,
+   privacyAlertPrivacyContentHeight?: number
+   privacyAlertBtnOffsetX?: number, // 二次隐私协议弹窗确认并继续按钮尺寸。
+   privacyAlertBtnOffsetY?: number, 
 }; // 提示：安卓端图片需要放在 drawable 下，ios端图片需要放在 Images.xcassets 下
 
 

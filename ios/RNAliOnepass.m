@@ -324,6 +324,242 @@ RCT_EXPORT_METHOD(setUIConfig:(NSDictionary *)config resolve:(RCTPromiseResolveB
         }
         return CGRectMake(x, y, width, height);
     };
+    // 二次弹窗授权页面
+    NSString *privacyAlertIsNeedShow = [config objectForKey:@"privacyAlertIsNeedShow"];
+    if(privacyAlertIsNeedShow != nil){
+        tXCustomModel.privacyAlertIsNeedShow = [privacyAlertIsNeedShow boolValue];
+    }
+    
+    NSString *privacyAlertIsNeedAutoLogin = [config objectForKey:@"privacyAlertIsNeedAutoLogin"];
+    if(privacyAlertIsNeedAutoLogin != nil){
+        tXCustomModel.privacyAlertIsNeedShow = [privacyAlertIsNeedAutoLogin boolValue];
+    }
+    
+    NSArray<NSNumber *> *privacyAlertCornerRadiusArray = [config objectForKey:@"privacyAlertCornerRadiusArray"];
+    if(privacyAlertCornerRadiusArray != nil){
+        tXCustomModel.privacyAlertCornerRadiusArray = privacyAlertCornerRadiusArray;
+    }
+    
+    NSString *privacyAlertBackgroundColor = [config objectForKey:@"privacyAlertBackgroundColor"];
+    if(privacyAlertBackgroundColor != nil){
+        tXCustomModel.privacyAlertBackgroundColor = [self colorWithHexString: privacyAlertBackgroundColor];
+    }
+    
+    NSString *privacyAlertAlpha = [config objectForKey:@"privacyAlertAlpha"];
+    if(privacyAlertAlpha != nil){
+        tXCustomModel.privacyAlertAlpha = [privacyAlertAlpha doubleValue];
+    }
+    
+    NSString *privacyAlertTitleFont = [config objectForKey:@"privacyAlertTitleFont"];
+    if(privacyAlertTitleFont!=nil){
+        tXCustomModel.privacyAlertTitleFont = [UIFont systemFontOfSize:[privacyAlertTitleFont doubleValue]];
+    }
+    
+    NSString *privacyAlertTitleColor = [config objectForKey:@"privacyAlertTitleColor"];
+    if(privacyAlertTitleColor!=nil){
+        tXCustomModel.privacyAlertTitleColor = [self colorWithHexString: privacyAlertTitleColor];
+    }
+    
+    NSString *privacyAlertTitleBackgroundColor = [config objectForKey:@"privacyAlertTitleBackgroundColor"];
+    if(privacyAlertTitleBackgroundColor != nil){
+        tXCustomModel.privacyAlertTitleBackgroundColor = [self colorWithHexString: privacyAlertTitleBackgroundColor];
+    }
+    
+    NSString *privacyAlertTitleAlignment = [config objectForKey:@"privacyAlertTitleAlignment"];
+    if(privacyAlertTitleAlignment != nil){
+        tXCustomModel.privacyAlertTitleAlignment = [privacyAlertTitleAlignment intValue];
+    }
+    
+    NSString *privacyAlertContentTextSize = [config objectForKey:@"privacyAlertContentFont"];
+    if(privacyAlertContentTextSize != nil){
+        tXCustomModel.privacyAlertContentFont = [UIFont systemFontOfSize: [privacyAlertContentTextSize floatValue]];
+    }
+    
+    NSString *privacyAlertContentBackgroundColor = [config objectForKey:@"privacyAlertContentBackgroundColor"];
+    if(privacyAlertContentBackgroundColor != nil){
+        tXCustomModel.privacyAlertContentBackgroundColor = [self colorWithHexString: privacyAlertContentBackgroundColor];
+    }
+    
+    NSArray<NSString *> *privacyAlertContentColors = [config objectForKey:@"privacyAlertContentColors"];
+    if(privacyAlertContentColors!=nil){
+        tXCustomModel.privacyAlertContentColors = @[[self colorWithHexString: privacyAlertContentColors[0]], [self colorWithHexString: privacyAlertContentColors[1]]];
+    }
+    
+    NSString *privacyAlertContentAlignment = [config objectForKey:@"privacyAlertContentAlignment"];
+    if(privacyAlertContentAlignment != nil){
+        tXCustomModel.privacyAlertContentAlignment = [privacyAlertContentAlignment intValue];
+    }
+    
+    NSArray<NSString *> *privacyAlertBtnBackgroundImages = [config objectForKey:@"privacyAlertBtnBackgroundImages"];
+    if(privacyAlertBtnBackgroundImages != nil){
+        tXCustomModel.privacyAlertBtnBackgroundImages = @[[UIImage imageNamed: privacyAlertBtnBackgroundImages[0]], [UIImage imageNamed: privacyAlertBtnBackgroundImages[1]]];
+    }
+    
+    NSArray<NSString *> *privacyAlertButtonTextColors = [config objectForKey:@"privacyAlertButtonTextColors"];
+    if(privacyAlertButtonTextColors != nil){
+        tXCustomModel.privacyAlertButtonTextColors = @[[self colorWithHexString:privacyAlertButtonTextColors[0]],[self colorWithHexString:privacyAlertButtonTextColors[1]]];
+    }
+    
+    NSString *privacyAlertButtonFont = [config objectForKey:@"privacyAlertButtonFont"];
+    if(privacyAlertButtonFont != nil){
+        tXCustomModel.privacyAlertButtonFont = [UIFont systemFontOfSize: [privacyAlertButtonFont doubleValue]];
+    }
+    
+    NSString *privacyAlertCloseButtonIsNeedShow = [config objectForKey:@"privacyAlertCloseButtonIsNeedShow"];
+    if(privacyAlertCloseButtonIsNeedShow != nil){
+        tXCustomModel.privacyAlertCloseButtonIsNeedShow = [privacyAlertCloseButtonIsNeedShow boolValue];
+    }
+    
+    NSString *privacyAlertCloseButtonImage = [config objectForKey:@"privacyAlertCloseButtonImage"];
+    if(privacyAlertCloseButtonImage != nil){
+        tXCustomModel.privacyAlertCloseButtonImage = [UIImage imageNamed: privacyAlertCloseButtonImage];
+    }
+    
+    NSString *privacyAlertMaskIsNeedShow = [config objectForKey:@"privacyAlertMaskIsNeedShow"];
+    if(privacyAlertMaskIsNeedShow != nil){
+        tXCustomModel.privacyAlertMaskIsNeedShow = [privacyAlertMaskIsNeedShow boolValue];
+    }
+    
+    NSString *tapPrivacyAlertMaskCloseAlert = [config objectForKey:@"tapPrivacyAlertMaskCloseAlert"];
+    if(tapPrivacyAlertMaskCloseAlert != nil){
+        tXCustomModel.tapPrivacyAlertMaskCloseAlert = [tapPrivacyAlertMaskCloseAlert boolValue];
+    }
+    
+    NSString *privacyAlertMaskColor = [config objectForKey:@"privacyAlertMaskColor"];
+    if(privacyAlertMaskColor != nil){
+        tXCustomModel.privacyAlertMaskColor = [self colorWithHexString: privacyAlertMaskColor];
+    }
+    
+    NSString *privacyAlertMaskAlpha = [config objectForKey:@"privacyAlertMaskAlpha"];
+    if(privacyAlertMaskAlpha != nil){
+        tXCustomModel.privacyAlertMaskAlpha = [privacyAlertMaskAlpha doubleValue];
+    }
+    
+    //privacyAlertWidth
+    //privacyAlertHeight
+    //privacyAlertOffsetX
+    //privacyAlertOffsetY
+    NSString *privacyAlertWidth = [config objectForKey:@"privacyAlertWidth"];
+    NSString *privacyAlertHeight = [config objectForKey:@"privacyAlertHeight"];
+    NSString *privacyAlertOffsetX = [config objectForKey:@"privacyAlertOffsetX"];
+    NSString *privacyAlertOffsetY = [config objectForKey:@"privacyAlertOffsetY"];
+    tXCustomModel.privacyAlertFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = frame.origin.x;
+        CGFloat y = frame.origin.y;
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        if (privacyAlertWidth != nil) {
+            width = [privacyAlertWidth floatValue];
+        }
+        if (privacyAlertHeight != nil) {
+            height = [privacyAlertHeight floatValue];
+        }
+        if (privacyAlertOffsetX != nil) {
+            x = [privacyAlertOffsetX floatValue];
+        }
+        if (privacyAlertOffsetY != nil) {
+            y = [privacyAlertOffsetY floatValue];
+        }
+        return CGRectMake(x, y, width, height);
+    };
+    
+    // privacyAlertTitleOffsetX
+    //privacyAlertTitleOffsetY
+    NSString *privacyAlertTitleOffsetX = [config objectForKey:@"privacyAlertTitleOffsetX"];
+    NSString *privacyAlertTitleOffsetY = [config objectForKey:@"privacyAlertTitleOffsetY"];
+    tXCustomModel.privacyAlertTitleFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = frame.origin.x;
+        CGFloat y = frame.origin.y;
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        if (privacyAlertTitleOffsetX != nil) {
+            x = [privacyAlertTitleOffsetX floatValue];
+        }
+        if (privacyAlertTitleOffsetY != nil) {
+            y = [privacyAlertTitleOffsetY floatValue];
+        }
+        return CGRectMake(x, y, width, height);
+    };
+    
+    //privacyAlertBtnOffsetX
+    //privacyAlertBtnOffsetY
+    //privacyAlertBtnWidth
+    // privacyAlertBtnHeight
+    NSString *privacyAlertBtnOffsetX = [config objectForKey:@"privacyAlertBtnOffsetX"];
+    NSString *privacyAlertBtnOffsetY = [config objectForKey:@"privacyAlertBtnOffsetY"];
+    NSString *privacyAlertBtnWidth = [config objectForKey:@" privacyAlertBtnWidth"];
+    NSString *privacyAlertBtnHeight = [config objectForKey:@"privacyAlertBtnHeight"];
+    tXCustomModel.privacyAlertButtonFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = frame.origin.x;
+        CGFloat y = frame.origin.y;
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        if (privacyAlertBtnOffsetX != nil) {
+            x = [privacyAlertBtnOffsetX floatValue];
+        }
+        if (privacyAlertBtnOffsetY != nil) {
+            y = [privacyAlertBtnOffsetY floatValue];
+        }
+        if (privacyAlertBtnWidth != nil) {
+            width = [privacyAlertBtnWidth floatValue];
+        }
+        if (privacyAlertBtnHeight != nil) {
+            height = [privacyAlertBtnHeight floatValue];
+        }
+        return CGRectMake(x, y, width, height);
+    };
+    
+    //privacyAlertCloseImgWidth
+    //privacyAlertCloseImgHeight
+    NSString *privacyAlertCloseImgWidth = [config objectForKey:@"privacyAlertCloseImgWidth"];
+    NSString *privacyAlertCloseImgHeight = [config objectForKey:@"privacyAlertCloseImgHeight"];
+    tXCustomModel.privacyAlertCloseFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = frame.origin.x;
+        CGFloat y = frame.origin.y;
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        if (privacyAlertCloseImgWidth != nil) {
+            width = [privacyAlertCloseImgWidth floatValue];
+        }
+        if (privacyAlertCloseImgHeight != nil) {
+            height = [privacyAlertCloseImgHeight floatValue];
+        }
+        return CGRectMake(x, y, width, height);
+    };
+    
+//    privacyAlertPrivacyContentOffsetX
+//    privacyAlertPrivacyContentOffsetY
+//    privacyAlertPrivacyContentWidth
+//    privacyAlertPrivacyContentHeight
+    
+    NSString *privacyAlertPrivacyContentOffsetX = [config objectForKey:@"privacyAlertPrivacyContentOffsetX"];
+    
+    NSString *privacyAlertPrivacyContentOffsetY = [config objectForKey:@"privacyAlertPrivacyContentOffsetY"];
+    
+    NSString *privacyAlertPrivacyContentWidth = [config objectForKey:@"privacyAlertPrivacyContentWidth"];
+    
+    NSString *privacyAlertPrivacyContentHeight = [config objectForKey:@"privacyAlertPrivacyContentHeight"];
+    
+    tXCustomModel.privacyAlertPrivacyContentFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
+        CGFloat x = frame.origin.x;
+        CGFloat y = frame.origin.y;
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        if(privacyAlertPrivacyContentOffsetX != nil){
+            x = [privacyAlertPrivacyContentOffsetX floatValue];
+        }
+        if(privacyAlertPrivacyContentOffsetY != nil){
+            y = [privacyAlertPrivacyContentOffsetY floatValue];
+        }
+        if(privacyAlertPrivacyContentWidth != nil){
+            width = [privacyAlertPrivacyContentWidth floatValue];
+        }
+        if(privacyAlertPrivacyContentHeight != nil){
+            height = [privacyAlertPrivacyContentHeight floatValue];
+        }
+        return CGRectMake(x, y, width, height);
+    };
+    
     // orivacy
     tXCustomModel.privacyAlignment = NSTextAlignmentCenter; // 与安卓保持一致
     NSString *appPrivacyOneName = [config objectForKey:[self methodName2KeyName:@"setAppPrivacyOneName"]];
@@ -381,6 +617,8 @@ RCT_EXPORT_METHOD(setUIConfig:(NSDictionary *)config resolve:(RCTPromiseResolveB
         return CGRectMake(x, y, width, height);
     };
     resolve(@"");
+    
+    
 }
 
 
