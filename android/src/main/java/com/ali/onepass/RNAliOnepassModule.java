@@ -532,6 +532,12 @@ public class RNAliOnepassModule extends ReactContextBaseJavaModule implements To
     if (config.hasKey(methodName2KeyName("setCheckboxHidden"))) {
       builder.setCheckboxHidden(config.getBoolean(methodName2KeyName("setCheckboxHidden")));
     }
+    if (config.hasKey(methodName2KeyName("setUncheckedImgPath"))) {
+      builder.setUncheckedImgPath(config.getString(methodName2KeyName("setUncheckedImgPath")));
+    }
+    if (config.hasKey(methodName2KeyName("setCheckedImgPath"))) {
+      builder.setCheckedImgPath(config.getString(methodName2KeyName("setCheckedImgPath")));
+    }
     if (config.hasKey(methodName2KeyName("setPrivacyOffsetY"))) {
       builder.setPrivacyOffsetY(config.getInt(methodName2KeyName("setPrivacyOffsetY")));
     }

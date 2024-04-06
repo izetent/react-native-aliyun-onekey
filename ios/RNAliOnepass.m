@@ -106,11 +106,10 @@ RCT_EXPORT_METHOD(onePass:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseReje
                     });
         } else if ([PNSCodeLoginControllerClickLoginBtn isEqualToString: resultCode]) {
             
-            NSError *error = [[NSError alloc] initWithDomain:msg code:[resultCode intValue] userInfo:@{
-                @"msg": msg!=nil ? msg: @"",
-                @"code": resultCode!=nil?resultCode:@"",
-            }];
-            reject(resultCode, msg, error);
+            [self sendEventWithName:@"onTokenSuccess" body:@{
+                                                             @"msg": msg!=nil ? msg: @"",
+                                                             @"code": resultCode!=nil?resultCode:@""
+                                               }];
         } else {
             [self sendEventWithName:@"onTokenFailed" body:@{
                                                             @"msg": msg!=nil ? msg: @"",

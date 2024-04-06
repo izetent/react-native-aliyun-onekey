@@ -5,7 +5,7 @@ import { EmitterSubscription } from 'react-native';
 export type UIConfig = {
   /** --start 仅限安卓 --- */
   lightColor?: boolean, // 状态栏亮色或暗色
-  statusBarHidden?: true, // 状态栏显示与隐藏
+  statusBarHidden?: boolean, // 状态栏显示与隐藏
   pageBackgroundPath?: string, // 背景图片地址
   /** --end 仅限安卓 --- */
 
@@ -14,7 +14,7 @@ export type UIConfig = {
   navTextColor?: string, // nav文字颜色
   navText?: string, // nav文字内容
   navTextSize?: number, // nav文字大小
-  navHidden?: true, // nav显示与隐藏
+  navHidden?: boolean, // nav显示与隐藏
 
   // 协议webview配置
   webNavColor?: string, // nav颜色
@@ -62,6 +62,8 @@ export type UIConfig = {
   vendorPrivacyPrefix?: string, // 运营商协议前面的文字
   vendorPrivacySuffix?: string, // 运营商协议后面的文字
   checkboxHidden?: boolean, // checkBox框的显示和隐藏
+  uncheckedImgPath?: string, // 未选中的图片地址
+  checkedImgPath?: string, // 选中的图片地址
   privacyState?: boolean, // checkBox选中情况
   appPrivacyOneName?: string, // 自定义协议的名称
   appPrivacyOneUrl?: string, // 自定义协议的地址
