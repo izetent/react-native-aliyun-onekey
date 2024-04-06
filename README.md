@@ -1,20 +1,22 @@
 
-### react-native-onepass-alibaba
-  此项目由[react-native-ali-onepass](https://github.com/yoonzm/react-native-ali-onepass) fork 而来
+### react-native-ali-onepass
+  此项目由[react-native-ali-onepass](https://github.com/he-yf/react-native-ali-onepass) fork 而来
 
 #### 安装
 
-`$ npm install react-native-onepass-alibaba --save`
+`$ npm install react-native-ali-one-pass --save`
 
-`$ yarn add react-native-onepass-alibaba`
+`$ yarn add react-native-ali-one-pass`
 
 对于android端需在在  `android/app/build.gradle`中添加下面的代码
 ```
+android {
   repositories {
       flatDir {
-          dirs 'libs', '../../node_modules/react-native-onepass-alibaba-dlxk/android/libs'
+          dirs 'libs', '../../node_modules/react-native-ali-one-pass/android/libs'
       }
   }
+}
 ```
 
 对于ios还需要运行以下命令
@@ -31,19 +33,8 @@ import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useRef} from 'react';
 import {Platform} from 'react-native';
-import * as onePassSDK from 'react-native-onepass-alibaba-dlxk';
-import {useDispatch, useSelector} from 'react-redux';
-import {easyLogin} from '../apis/login';
-import {
-  selectIsLogin,
-  setFirstlogin,
-  setLogin,
-  setUserInfoAsync,
-} from '../redux/features/userSlice';
-import {navigate, navigationRef, reset} from '../router/RootNavigation';
-import {onEvent} from '../utils/BaiduMobStat';
-import {sendSentryWithScope} from '../utils/sentry';
-import {ToastCustom} from '../utils/utils';
+import * as onePassSDK from 'react-native-ali-one-pass';
+import {useDispatch} from 'react-redux';
 
 export async function setUIConfig() {
   const operatorType = await onePassSDK.getOperatorType();
@@ -110,8 +101,8 @@ export async function setUIConfig() {
   });
 }
 
-const androidAuthKey = '********';
-const iosAuthKey = '*********';
+const androidAuthKey = '**********';
+const iosAuthKey = '**************';
 
 /**
  * 手机号一键登录hook
@@ -137,6 +128,7 @@ const usePhoneLogin = () => {
       delayFuncQueue.current = [];
     }, 100);
   }, []);
+
   useFocusEffect(
     useCallback(() => {
       // 初始化
@@ -188,7 +180,7 @@ const usePhoneLogin = () => {
             ) {
               onePassSDK.hideLoginLoading();
               onePassSDK.quitLoginPage();
-              navigate('popuplogin', {});
+              console.log('popuplogin');
             }
           }
         },
@@ -199,34 +191,29 @@ const usePhoneLogin = () => {
           console.log(data.code, onePassSDK.RESULT_CODES.SWITCHAUTHWAY);
           if (data.code === onePassSDK.RESULT_CODES.SWITCHAUTHWAY) {
             if (Platform.OS === 'android') {
-              ToastCustom('正在切换登录方式', 1000);
-              setTimeout(() => {
-                navigate('popuplogin', {});
-              }, 250);
+              console.log('正在切换登录方式','android跳转');
             } else {
-              navigate('login', {});
+              console.log('正在切换登录方式','ios跳转');
             }
             setTimeout(() => {
               onePassSDK.quitLoginPage();
             }, 300);
           }
-          console.log(data, 'fail data');
+          console.log(data, 'fail data 一键登录失败');
           onePassSDK.hideLoginLoading();
-          sendSentryWithScope(new Error('一键登录失败'), scope => {
-            scope.setExtra('errMsg', JSON.stringify(data));
-          });
         },
       );
       return () => {
         succListener.remove();
         failListener.remove();
       };
-    }, [callDelayFuncQueue, dispatch, isLogin]),
+    }, [callDelayFuncQueue, dispatch]),
   );
+
   const goLogin = useCallback(async () => {
     // 当前手机不支持一键登录，跳转去普通登录页面
     if (!onePassEnable.current) {
-      navigate('login', {});
+      console.log('login');
       return;
     }
     // 等待设置一键登录UI页面完成
@@ -234,12 +221,12 @@ const usePhoneLogin = () => {
     // 拉起一键登录页面
     onePassSDK
       .onePass()
-      .then(res => {
-      })
+      .then(res => {})
       .catch(e => {
         console.log(e);
       });
   }, []);
+
   return useCallback(async () => {
     // SDK初始化成功后再调用去登录页面的函数
     if (onePassSDKIniting.current) {
@@ -251,5 +238,34 @@ const usePhoneLogin = () => {
 };
 
 export default usePhoneLogin;
+```
 
+使用
+```js
+import React from 'react';
+import {Button, StyleSheet, View} from 'react-native';
+
+export const Login = () => {
+  const onPhoneLogin = usePhoneLogin();
+
+  return (
+    <View style={styles.container}>
+      <Button
+        title="弹出登录"
+        onPress={() => {
+          onPhoneLogin();
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+});
 ```

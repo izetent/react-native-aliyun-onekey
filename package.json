@@ -1,6 +1,6 @@
 {
-  "name": "react-native-onepass-alibaba-dlxk",
-  "version": "1.0.7",
+  "name": "react-native-ali-one-pass",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/he-yf/react-native-ali-onepass.git"
+    "url": "git+https://github.com/lvnini/react-native-ali-one-pass"
   },
   "keywords": [
     "react-native",
     "ali",
+    "ali-one-pass",
     "onepass",
     "quickpass",
     "auth",

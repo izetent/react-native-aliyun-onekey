@@ -15,7 +15,7 @@ export type UIConfig = {
   navText?: string, // nav文字内容
   navTextSize?: number, // nav文字大小
   navHidden?: true, // nav显示与隐藏
- 
+
   // 协议webview配置
   webNavColor?: string, // nav颜色
   webNavTextColor?: string, // nav文字颜色
