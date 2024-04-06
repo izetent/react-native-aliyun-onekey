@@ -4,16 +4,16 @@
 
 #### 安装
 
-`$ npm install react-native-ali-one-pass --save`
+`$ npm install react-native-ali-one-pass-login --save`
 
-`$ yarn add react-native-ali-one-pass`
+`$ yarn add react-native-ali-one-pass-login`
 
 对于android端需在在  `android/app/build.gradle`中添加下面的代码
 ```
 android {
   repositories {
       flatDir {
-          dirs 'libs', '../../node_modules/react-native-ali-one-pass/android/libs'
+          dirs 'libs', '../../node_modules/react-native-ali-one-pass-login/android/libs'
       }
   }
 }
@@ -33,7 +33,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useRef} from 'react';
 import {Platform} from 'react-native';
-import * as onePassSDK from 'react-native-ali-one-pass';
+import * as onePassSDK from 'react-native-ali-one-pass-login';
 import {useDispatch} from 'react-redux';
 
 export async function setUIConfig() {
