@@ -28,7 +28,7 @@ export type UIConfig = {
   logoWidth?: number,
   logoHeight?: number,
   logoOffsetY?: number, // logo 竖直方向位置
-
+  logoOffsetX?: number, // logo 水平方向位置
 
   // 手机号掩码
   numberColor?: string,
