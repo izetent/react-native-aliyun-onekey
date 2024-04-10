@@ -704,4 +704,12 @@ public class RNAliOnepassModule extends ReactContextBaseJavaModule implements To
     mScreenWidthDp = screenWidthDp;
     mScreenHeightDp = screenHeightDp;
   }
+
+  @ReactMethod
+  public void addListener(String eventName) {
+  }
+
+  @ReactMethod
+  public void removeListeners(Integer count) {
+  }
 }
