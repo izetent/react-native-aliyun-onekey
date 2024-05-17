@@ -90,8 +90,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "cn.swifthealth.alionepass"
