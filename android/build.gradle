@@ -26,6 +26,11 @@ android {
     lintOptions {
         abortOnError false
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
     sourceSets.main.jniLibs.srcDirs=['libs']
 
     compileOptions {
@@ -42,11 +47,12 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'com.facebook.react:react-native:+'
     implementation 'com.android.support:appcompat-v7:23.2.1'
-    implementation files('libs/auth_number_product-2.13.4-log-online-standard-cuum-release.aar')
-    implementation files('libs/crashshield-2.1.4-release.aar')
-    implementation files('libs/logger-2.2.2-release.aar')
-    implementation files('libs/main-2.2.3-release.aar')
+    implementation(name:'auth_number_product-2.13.4-log-online-standard-cuum-release', ext:'aar')
+    implementation(name:'crashshield-2.1.4-release', ext:'aar')
+    implementation(name:'main-2.2.3-release', ext:'aar')
+    implementation(name:'logger-2.2.2-release', ext:'aar')
     implementation 'com.alibaba:fastjson:1.2.75' // 配置对gson的依赖
 }
