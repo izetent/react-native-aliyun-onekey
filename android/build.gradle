@@ -5,21 +5,16 @@ buildscript {
         maven(){ url 'https://maven.aliyun.com/repository/releases' }
         maven{ url "https://maven.aliyun.com/nexus/content/repositories/releases" }
     }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-    }
 }
 
 apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "31.0.0"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
     }
@@ -31,6 +26,7 @@ android {
             dirs 'libs'
         }
     }
+    sourceSets.main.jniLibs.srcDirs=['libs']
 
     compileOptions {
         sourceCompatibility 1.8
@@ -47,10 +43,10 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.android.support:appcompat-v7:23.2.1'
-    implementation(name:'auth_number_product-2.13.4-log-online-standard-cuum-release', ext:'aar')
+    implementation(name:'auth_number_product-2.13.9-log-online-standard-cuum-release', ext:'aar')
     implementation(name:'crashshield-2.1.4-release', ext:'aar')
     implementation(name:'main-2.2.3-release', ext:'aar')
     implementation(name:'logger-2.2.2-release', ext:'aar')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.alibaba:fastjson:1.2.75' // 配置对gson的依赖
 }
