@@ -1,39 +1,42 @@
-
 ### react-native-ali-onepass
-  此项目由[react-native-ali-onepass](https://github.com/he-yf/react-native-ali-onepass) fork 而来
+
+此项目由[react-native-ali-onepass](https://github.com/he-yf/react-native-ali-onepass) fork 而来
 
 #### 安装
 
-`$ npm install react-native-ali-one-pass-login --save`
+`$ npm install react-native-aliyun-onekey --save`
 
-`$ yarn add react-native-ali-one-pass-login`
+`$ yarn add react-native-aliyun-onekey`
 
-对于android端需在在  `android/app/build.gradle`中添加下面的代码
+对于 android 端需在在 `android/app/build.gradle`中添加下面的代码
+
 ```
 android {
   repositories {
       flatDir {
-          dirs 'libs', '../../node_modules/react-native-ali-one-pass-login/android/libs'
+          dirs 'libs', '../../node_modules/react-native-aliyun-onekey/android/libs'
       }
   }
 }
 ```
 
-对于ios还需要运行以下命令
+对于 ios 还需要运行以下命令
 `$ cd ios && pod install`
 
-#### api说明
-详细内容请看[api详细说明](./index.d.ts)
+#### api 说明
+
+详细内容请看[api 详细说明](./index.d.ts)
 
 #### 用法
 
-使用示例：封装成hook使用
+使用示例：封装成 hook 使用
+
 ```js
 import {useFocusEffect} from '@react-navigation/native';
 import {useCallback} from 'react';
 import {useRef} from 'react';
 import {Platform} from 'react-native';
-import * as onePassSDK from 'react-native-ali-one-pass-login';
+import * as onePassSDK from 'react-native-aliyun-onekey';
 import {useDispatch} from 'react-redux';
 
 export async function setUIConfig() {
@@ -241,9 +244,10 @@ export default usePhoneLogin;
 ```
 
 使用
+
 ```js
-import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import React from "react";
+import { Button, StyleSheet, View } from "react-native";
 
 export const Login = () => {
   const onPhoneLogin = usePhoneLogin();
@@ -263,9 +267,9 @@ export const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
 });
 ```
