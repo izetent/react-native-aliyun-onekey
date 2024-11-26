@@ -1,6 +1,6 @@
 {
   "name": "react-native-aliyun-onekey",
-  "version": "1.0.16",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lvnini/react-native-ali-one-pass"
+    "url": "git+https://github.com/izetent/react-native-aliyun-onekey"
   },
   "keywords": [
     "react-native",
